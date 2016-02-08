@@ -1,0 +1,17 @@
+---
+galaxy_info:
+  author: "Eric Anderson"
+  license: BSD
+  min_ansible_version: 1.4
+  platforms:
+   - name: EL
+     versions:
+      - 7
+   - name: Fedora
+     versions:
+      - 21
+      - 22
+      - 23
+  categories:
+   - system
+dependencies: []

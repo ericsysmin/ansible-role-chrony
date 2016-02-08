@@ -1,0 +1,15 @@
+---
+- name: Install the required packages in Redhat derivatives
+  yum: name=chrony state={{ chrony_pkg_state }}
+  when: ansible_os_family == 'RedHat'
+  tags: [ 'package', 'chrony' ]
+
+- name: Copy the ntp.conf template file
+  template: src=chrony.conf.j2 dest=/etc/chrony.conf
+  notify:
+  - restart chrony
+  tags: [ 'configuration', 'package', 'chrony' ]
+
+- name: Start/stop chrony service
+  service: name={{ chrony_service_name }} state={{ chrony_service_state }} enabled={{ chrony_service_enabled }}
+  tags: [ 'service', 'chrony' ]
