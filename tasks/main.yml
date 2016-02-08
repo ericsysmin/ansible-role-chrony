@@ -8,8 +8,13 @@
   when: ansible_os_family == 'RedHat'
   tags: [ 'package', 'chrony' ]
 
-- name: Copy the ntp.conf template file
-  template: src=chrony.conf.j2 dest=/etc/chrony.conf
+- name: Install the require packages in Debian derivatives
+  apt: name=chrony state={{ chrony_pkg_state }}
+  when: ansible_os_family == 'Debian'
+  tags: [ 'package', 'chrony' ]
+
+- name: Copy the chrony.conf template file
+  template: src=chrony.conf.j2 dest={{ chrony_config_location }}
   notify:
   - restart chrony
   tags: [ 'configuration', 'package', 'chrony' ]
