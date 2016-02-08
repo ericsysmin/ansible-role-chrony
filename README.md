@@ -3,6 +3,10 @@ chrony
 
 This role enables users to install and configure chrony on their hosts.
 
+Build Status
+------------
+[![Build Status](https://travis-ci.org/ericsysmin/ansible-role-chrony.svg?branch=master)](https://travis-ci.org/ericsysmin/ansible-role-chrony)
+
 Requirements
 ------------
 
