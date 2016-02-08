@@ -9,7 +9,7 @@ server {{ server }} iburst
 stratumweight 0
 
 # Record the rate at which the system clock gains/losses time.
-driftfile {{ ntp_config_driftfile }}
+driftfile {{ chrony_config_driftfile }}
 
 # Enable kernel RTC synchronization.
 rtcsync
