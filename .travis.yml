@@ -13,6 +13,6 @@ script:
   - ansible-playbook --sudo -v --diff tests/role.yml
   - >
     ansible-playbook --sudo tests/role.yml
-    | grep -q 'changed=0.*failed=0'
+    | grep -q 'changed=4.*failed=0'
     && (echo 'Idempotence test: pass' && exit 0)
     || (echo 'Idempotence test: fail' && exit 1)
