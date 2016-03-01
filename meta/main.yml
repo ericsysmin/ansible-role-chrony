@@ -1,7 +1,7 @@
 ---
 galaxy_info:
   author: "Eric Anderson"
-  license: BSD
+  license: GPLv2
   description: This role enables users to install and configure chrony on their hosts.
   min_ansible_version: 1.4
   platforms:
