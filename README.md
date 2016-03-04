@@ -31,7 +31,7 @@ Examples
 License
 -------
 
-BSD
+GPLv2
 
 Author Information
 ------------------

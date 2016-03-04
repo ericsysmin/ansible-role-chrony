@@ -1,18 +1,23 @@
 ---
 language: python
 python: "2.7"
+
 before_install:
  - sudo apt-get update -qq
  - sudo apt-get install -qq python-apt python-pycurl
+
 install:
-  - pip install ansible
-  - echo -e 'localhost  ansible_connection=local' > tests/inventory
-  - echo -e '[defaults]\nroles_path = ../\nhostfile = ./tests/inventory' > ansible.cfg
+  - sudo pip install ansible
+  - echo -e '[defaults]\nroles_path = ../' > ansible.cfg
+
 script:
-  - ansible-playbook --syntax-check tests/role.yml
-  - ansible-playbook --sudo -v --diff tests/role.yml
+  - ansible-playbook tests/role.yml -i tests/inventory --syntax-check
+  - ansible-playbook tests/role.yml -i tests/inventory --connection=local --become
   - >
-    ansible-playbook --sudo tests/role.yml
-    | grep -q 'failed=0'
+    ansible-playbook tests/test.yml -i tests/inventory --connection=local --become
+    | grep -q 'changed=0.*failed=0'
     && (echo 'Idempotence test: pass' && exit 0)
     || (echo 'Idempotence test: fail' && exit 1)
+
+notifications:
+  webhooks: https://galaxy.ansible.com/api/v1/notifications/
