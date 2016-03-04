@@ -21,4 +21,4 @@
       when: ansible_os_family == 'Debian'
 
   roles:
-    - ansible-role-chrony
+    - role_under_test
