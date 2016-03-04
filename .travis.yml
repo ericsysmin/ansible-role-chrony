@@ -5,16 +5,14 @@ python: "2.7"
 before_install:
  - sudo apt-get update -qq
  - sudo apt-get install -qq python-apt python-pycurl
-
 install:
   - sudo pip install ansible
   - echo -e '[defaults]\nroles_path = ../' > ansible.cfg
-
 script:
   - ansible-playbook tests/role.yml -i tests/inventory --syntax-check
   - ansible-playbook tests/role.yml -i tests/inventory --connection=local --become
   - >
-    ansible-playbook tests/test.yml -i tests/inventory --connection=local --become
+    ansible-playbook tests/role.yml -i tests/inventory --connection=local --become
     | grep -q 'changed=0.*failed=0'
     && (echo 'Idempotence test: pass' && exit 0)
     || (echo 'Idempotence test: fail' && exit 1)
