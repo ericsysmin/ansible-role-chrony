@@ -1,5 +1,5 @@
 ---
-chrony_pkg_state: 'installed'
+chrony_pkg_state: 'present'
 chrony_service_state: 'started'
 chrony_service_enabled: 'yes'
 
