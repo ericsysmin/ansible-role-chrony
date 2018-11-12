@@ -2,5 +2,6 @@
 - name: Converge
   hosts: all
   pre_tasks:
+    - debug: var=ansible_service_mgr
   roles:
     - role: ericsysmin.chrony
