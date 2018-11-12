@@ -13,6 +13,7 @@ env:
     - ROLE_NAME: chrony
   matrix:
     - MOLECULE_DISTRO: centos/systemd
+      MOLECULE_COMMAND: /usr/sbin/init
     - MOLECULE_DISTRO: debian:jessie
     - MOLECULE_DISTRO: debian:stretch
 

@@ -13,7 +13,7 @@ platforms:
     privileged: true
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
-    command: /usr/sbin/init
+    command: ${MOLECULE_COMMAND:-/sbin/init}
 provisioner:
   name: ansible
   lint:
