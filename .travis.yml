@@ -12,7 +12,7 @@ env:
   global:
     - ROLE_NAME: chrony
   matrix:
-    - MOLECULE_DISTRO: centos:7
+    - MOLECULE_DISTRO: centos:systemd
     - MOLECULE_DISTRO: debian:jessie
     - MOLECULE_DISTRO: debian:stretch
 
