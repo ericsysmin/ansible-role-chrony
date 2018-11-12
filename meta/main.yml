@@ -6,16 +6,16 @@ galaxy_info:
   license: Apache 2.0
   min_ansible_version: 2.4
   platforms:
-   - name: CentOS
-     versions:
-      - 7
-   - name: Debian
-     versions:
-      - jessie
-      - stretch
+    - name: CentOS
+      versions:
+        - 7
+    - name: Debian
+      versions:
+        - jessie
+        - stretch
   galaxy_tags:
-   - system
-   - chrony
-   - ntp
-   - time
+    - system
+    - chrony
+    - ntp
+    - time
 dependencies: []
