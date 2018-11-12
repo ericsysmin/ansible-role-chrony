@@ -17,3 +17,11 @@
     name: "{{ chrony_service_name }}"
     state: "{{ chrony_service_state }}"
     enabled: "{{ chrony_service_enabled }}"
+  when: ansible_service_mgr|lower != "systemd"
+
+- name: chrony | systemd | start and enable chrony service
+  systemd:
+    name: "{{ chrony_service_name }}"
+    state: "{{ chrony_service_state }}"
+    enabled: "{{ chrony_service_enabled }}"
+  when: ansible_service_mgr|lower == "systemd"
