@@ -8,7 +8,7 @@
 - name: chrony | Copy the chrony.conf template file
   template:
     src: chrony.conf.j2
-    dest: {{ chrony_config_location }}
+    dest: "{{ chrony_config_location }}"
   notify:
     - restart chrony
 
