@@ -1,0 +1,6 @@
+---
+- name: Install the required packages in Redhat derivatives
+  yum: name=chrony state={{ chrony_pkg_state }}
+
+- name: Remove NTP if installed in Redhat
+  yum: name=ntp state=absent
