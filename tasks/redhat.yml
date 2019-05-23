@@ -8,4 +8,4 @@
 
 - name: Stop and mask ntpd service
   systemd: name=ntpd state=stopped masked=yes
-  when: ntpd_service_status.stat.exists == True
+  when: ntpd_service_status.stat.exists
