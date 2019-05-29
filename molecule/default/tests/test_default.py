@@ -9,15 +9,14 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
 
 @pytest.fixture(scope="module")
 def facts(host):
-    host.ansible('setup')
-    ansible_vars = host.ansible.get_variables()
+    os_family = host.ansible('setup')['ansible_facts']['ansible_os_family']
 
     chrony_config_location = '/etc/chrony/chrony.conf'
     chrony_config_driftfile = '/var/lib/chrony/chrony.drift'
     chrony_config_keyfile = '/etc/chrony/chrony.keys'
     chrony_config_logdir = '/var/log/chrony'
 
-    if ansible_vars['ansible_os_family'] == 'RedHat':
+    if os_family == 'RedHat':
         chrony_config_location = '/etc/chrony.conf'
         chrony_config_driftfile = '/var/lib/chrony/drift'
         chrony_config_keyfile = '/etc/chrony.keys'
@@ -72,6 +71,6 @@ rtcsync
 makestep 1 3
 """  # noqa
     x = x.format(**facts)
-    x = x.strip()
+    x = x.lstrip()
 
     assert x == f.content_string
