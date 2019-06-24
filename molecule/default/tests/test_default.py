@@ -69,6 +69,8 @@ rtcsync
 # Step the system clock instead of slewing it if the adjustment is larger than
 # one second, but only in the first three clock updates.
 makestep 1 3
+
+# Extra options
 """  # noqa
     x = x.format(**facts)
     x = x.lstrip()
