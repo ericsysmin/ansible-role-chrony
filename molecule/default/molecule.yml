@@ -3,10 +3,10 @@ dependency:
   name: galaxy
 driver:
   name: docker
-lint:
-  name: yamllint
-  options:
-    config-file: molecule/default/.yamllint
+lint: |
+  set -e
+  yamllint -c molecule/default/.yamllint .
+  ansible-lint -c molecule/default/.ansible-lint
 platforms:
   - name: instance
     image: ${MOLECULE_DISTRO:-centos:7}
@@ -16,17 +16,5 @@ platforms:
     command: ${MOLECULE_COMMAND:-"sleep infinity"}
 provisioner:
   name: ansible
-  lint:
-    name: ansible-lint
-    options:
-      c: molecule/default/.ansible-lint
   playbooks:
     converge: ${MOLECULE_PLAYBOOK:-playbook.yml}
-scenario:
-  name: default
-verifier:
-  name: testinfra
-  options:
-    W: ignore::DeprecationWarning
-  lint:
-    name: flake8
