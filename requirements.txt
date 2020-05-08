@@ -2,3 +2,5 @@ molecule
 docker
 ansible
 testinfra
+ansible-lint
+yamllint
