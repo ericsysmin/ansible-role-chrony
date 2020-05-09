@@ -1,5 +1,6 @@
 ---
-dist: trusty
+dist: bionic
+os: linux
 language: python
 services:
   - docker
@@ -8,7 +9,9 @@ before_install:
   - sudo apt-get -qq update
 
 env:
-  matrix:
+  global:
+    - ROLE_NAME: chrony
+  jobs:
     - MOLECULE_DISTRO=centos:7 MOLECULE_COMMAND=/usr/sbin/init
     - MOLECULE_DISTRO=centos:8 MOLECULE_COMMAND=/usr/sbin/init
     - MOLECULE_DISTRO=fedora:32 MOLECULE_SERVICE_MANAGER=systemd MOLECULE_COMMAND=/usr/sbin/init
@@ -20,8 +23,15 @@ env:
     - MOLECULE_DISTRO=debian:9 MOLECULE_COMMAND=/lib/systemd/systemd
     - MOLECULE_DISTRO=debian:10 MOLECULE_COMMAND=/lib/systemd/systemd
 
+jobs:
+  fast_finish: true
 install:
   - pip install -r requirements.txt
+
+before_script:
+  - cd ../
+  - mv ansible-role-$ROLE_NAME ericsysmin.$ROLE_NAME
+  - cd ericsysmin.$ROLE_NAME
 
 script:
   - molecule test
