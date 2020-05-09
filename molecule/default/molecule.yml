@@ -16,5 +16,6 @@ platforms:
     command: ${MOLECULE_COMMAND:-"sleep infinity"}
 provisioner:
   name: ansible
+  log: true
   playbooks:
     converge: ${MOLECULE_PLAYBOOK:-playbook.yml}
