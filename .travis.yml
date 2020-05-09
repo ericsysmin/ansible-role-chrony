@@ -11,10 +11,12 @@ env:
   matrix:
     - MOLECULE_DISTRO=centos:7 MOLECULE_COMMAND=/usr/sbin/init
     - MOLECULE_DISTRO=centos:8 MOLECULE_COMMAND=/usr/sbin/init
-#    - ROLE=chrony MOLECULE_DISTRO=fedora:29 MOLECULE_SERVICE_MANAGER=systemd MOLECULE_COMMAND=/usr/sbin/init
-#    - ROLE=chrony MOLECULE_DISTRO=fedora:28 MOLECULE_SERVICE_MANAGER=systemd MOLECULE_COMMAND=/usr/sbin/init
+    - MOLECULE_DISTRO=fedora:32 MOLECULE_SERVICE_MANAGER=systemd MOLECULE_COMMAND=/usr/sbin/init
+    - MOLECULE_DISTRO=fedora:31 MOLECULE_SERVICE_MANAGER=systemd MOLECULE_COMMAND=/usr/sbin/init
+    - MOLECULE_DISTRO=fedora:30 MOLECULE_SERVICE_MANAGER=systemd MOLECULE_COMMAND=/usr/sbin/init
     - MOLECULE_DISTRO=ubuntu:16.04 MOLECULE_COMMAND=/sbin/init
     - MOLECULE_DISTRO=ubuntu:18.04 MOLECULE_COMMAND=/lib/systemd/systemd
+    - MOLECULE_DISTRO=ubuntu:20.04 MOLECULE_COMMAND=/lib/systemd/systemd
     - MOLECULE_DISTRO=debian:9 MOLECULE_COMMAND=/lib/systemd/systemd
     - MOLECULE_DISTRO=debian:10 MOLECULE_COMMAND=/lib/systemd/systemd
 
