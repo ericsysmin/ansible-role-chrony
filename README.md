@@ -1,3 +1,5 @@
+# THIS ROLE IS MOVING TO THE ERICSYSMIN.SYSTEM ANSIBLE COLLECTION
+
 # ericsysmin.chrony
 
 This role enables users to install and configure chrony on their hosts.
