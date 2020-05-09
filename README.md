@@ -1,5 +1,7 @@
 # THIS ROLE IS MOVING TO THE ERICSYSMIN.SYSTEM ANSIBLE COLLECTION
 
+## <https://galaxy.ansible.com/ericsysmin/system>
+
 # ericsysmin.chrony
 
 This role enables users to install and configure chrony on their hosts.
