@@ -9,11 +9,11 @@ lint: |
   ansible-lint -c molecule/default/.ansible-lint
 platforms:
   - name: instance
-    image: ${MOLECULE_DISTRO:-centos:7}
+    image: ${MOLECULE_IMAGE:-centos-7}
     privileged: true
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
-    command: ${MOLECULE_COMMAND:-"sleep infinity"}
+    command: ${MOLECULE_COMMAND:-""}
 provisioner:
   name: ansible
   log: true
