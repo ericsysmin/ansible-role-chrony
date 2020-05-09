@@ -1,4 +1,2 @@
-{% set distribution = item.image.split(':', 1)[0] %}
-{% set version = item.image.split(':', 1)[1] %}
-{% set docker_dir = '{}-{}'.format(distribution, version %}
+{% set docker_dir = '{}-{}'.format(item.image.split(':', 1)[0], item.image.split(':', 1)[1]) %}
 {{ lookup('url', 'https://raw.githubusercontent.com/ericsysmin/docker-ansible-testing/master/' ~ docker_dir ~ '/Dockerfile') }}"
