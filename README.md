@@ -17,7 +17,7 @@ None
 | `chrony_pkg_state` | No | `present` | Set pkg `enabled`, `disabled`, `latest` |
 | `chrony_service_state` | No | `started` | Set service state, started, enabled or disabled |
 | `chrony_service_enabled` | No | `yes` | A list of NTP servers to use.                   |
-| `chrony_config_server` | No | `["0.pool.ntp.org","1.pool.ntp.org","2.pool.ntp.org", "3.pool.ntp.org"]` | A list of NTP servers to use. |
+| `chrony_config_server` | No | `[{"0.pool.ntp.org", "options": [{"option":"iburst"}]}, {"1.pool.ntp.org", "options": [{"option":"iburst"}]}, {"2.pool.ntp.org", "options": [{"option":"iburst"}]}, {"3.pool.ntp.org", "options": [{"option":"iburst"}]}]` | A list of NTP servers, or list of maps of NTP servers and options to use (see example in defaults/main.yml). |
 | `chrony_config_logdir` | No | `/var/log/chrony` | A list of NTP servers to use. |
 | `chrony_config_extra_options` | No | `{}` | A dict of extra config options. |
 
