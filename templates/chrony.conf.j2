@@ -1,8 +1,10 @@
 # {{ ansible_managed }}
 
 # List of NTP servers to use.
-{% for server in chrony_config_server %}
-server {{ server }} iburst
+{% for item in chrony_config_server %}
+
+server {{ item['server'] }}  {% if item['options'] is defined -%}   {% for opt in item['options'] %} {{ opt['option'] }}{% if opt['val'] is defined %} {{ opt['val'] }}{% endif %}{% endfor %}
+{%- endif %}
 {% endfor %}
 
 # This directive specify the location of the file containing ID/key pairs for
