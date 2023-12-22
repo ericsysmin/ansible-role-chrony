@@ -1,4 +1,4 @@
-# {{ ansible_managed }}
+{{ ansible_managed | comment }}
 
 # List of NTP servers to use.
 {% for server in chrony_config_server %}
